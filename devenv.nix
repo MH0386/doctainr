@@ -1,7 +1,12 @@
 { pkgs, lib, ... }:
 
 {
-  packages = [ pkgs.dioxus-cli ];
+  packages = [
+    pkgs.dioxus-cli
+    pkgs.webkitgtk_4_1
+    pkgs.xdotool
+    pkgs.openssl
+  ];
 
   languages.rust.enable = true;
 
