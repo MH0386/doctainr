@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   packages = [
@@ -55,6 +60,17 @@
     ${lib.getExe pkgs.git} --version
     ${lib.getExe pkgs.dioxus-cli} --version
     ${lib.getExe pkgs.cargo} --version
+  '';
+
+  enterTest = ''
+    echo "Dioxus Format"
+    ${config.tasks."dx:format".exec}
+    echo "Dioxus Test"
+    ${config.tasks."dx:test".exec}
+    echo "Cargo Test"
+    ${config.tasks."cargo:test".exec}
+    echo "Cargo Dependencies Test"
+    ${config.tasks."cargo:deps-test".exec}
   '';
 
   git-hooks.hooks = {
