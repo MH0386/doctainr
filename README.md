@@ -1,27 +1,35 @@
 # Development
 
+This project now renders a Docker Desktop-style shell with pages for dashboard, containers, images, volumes, and settings.
+
 Your new jumpstart project includes basic organization with an organized `assets` folder and a `components` folder.
 If you chose to develop with the router feature, you will also have a `views` folder.
 
-```
-project/
-├─ assets/ # Any assets that are used by the app should be placed here
-├─ src/
-│  ├─ main.rs # The entrypoint for the app. It also defines the routes for the app.
-│  ├─ components/
-│  │  ├─ mod.rs # Defines the components module
-│  │  ├─ hero.rs # The Hero component for use in the home page
-│  │  ├─ echo.rs # The echo component uses server functions to communicate with the server
-│  ├─ views/ # The views each route will render in the app.
-│  │  ├─ mod.rs # Defines the module for the views route and re-exports the components for each route
-│  │  ├─ blog.rs # The component that will render at the /blog/:id route
-│  │  ├─ home.rs # The component that will render at the / route
-├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
-```
+    project/
+    ├─ assets/ # Any assets that are used by the app should be placed here
+    ├─ src/
+    │  ├─ main.rs # The entrypoint for the app. It also defines the routes for the app.
+    │  ├─ components/
+    │  │  ├─ mod.rs # Defines the components module
+    │  │  ├─ hero.rs # The Hero component for use in the home page
+    │  │  ├─ echo.rs # The echo component uses server functions to communicate with the server
+    │  ├─ views/ # The views each route will render in the app.
+    │  │  ├─ mod.rs # Defines the module for the views route and re-exports the components for each route
+    │  │  ├─ blog.rs # The component that will render at the /blog/:id route
+    │  │  ├─ home.rs # The component that will render at the / route
+    ├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
+
+### App Pages
+
+- Dashboard overview
+- Containers table with start/stop actions (mock)
+- Images list
+- Volumes list
+- Settings with Docker host input
 
 ### Automatic Tailwind (Dioxus 0.7+)
 
-As of Dioxus 0.7, there no longer is a need to manually install tailwind. Simply `dx serve` and you're good to go!
+As of Dioxus 0.7, there no longer is a need to manually install tailwind. Simply `dx serve` and you're good to go\!
 
 Automatic tailwind is supported by checking for a file called `tailwind.css` in your app's manifest directory (next to Cargo.toml). To customize the file, use the dioxus.toml:
 
@@ -39,6 +47,8 @@ To use tailwind plugins or manually customize tailwind, you can can install the 
 2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation/tailwind-cli
 3. Run the following command in the root of the project to start the Tailwind CSS compiler:
 
+<!-- end list -->
+
 ```bash
 npx @tailwindcss/cli -i ./input.css -o ./assets/tailwind.css --watch
 ```
@@ -52,7 +62,7 @@ dx serve --platform desktop
 ```
 
 To run for a different platform, use the `--platform platform` flag. E.g.
+
 ```bash
 dx serve --platform desktop
 ```
-
