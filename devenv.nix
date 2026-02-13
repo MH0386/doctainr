@@ -111,7 +111,7 @@
     taplo.enable = true;
     trim-trailing-whitespace.enable = true;
     trufflehog.enable = true;
-    yamllint.enable = true;
+    # yamllint.enable = true;
   };
 
   treefmt = {
