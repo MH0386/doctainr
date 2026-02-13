@@ -106,13 +106,21 @@ cargo fmt
 cargo clippy
 ```
 
-<!--## 📄 License
+<!--## 📚 Documentation
+
+Comprehensive documentation is available in the [`docs/`](docs/) directory:
+
+- **[API Reference](docs/api/README.md)** - Detailed API documentation
+- **[Architecture](docs/architecture/overview.md)** - System design and patterns
+- **[Contributing Guide](docs/contributing.md)** - How to contribute
+
+## 📄 License
 
 [Your License Here]-->
 
 ## 🤝 Contributing
 
-Contributions are welcome\! Please feel free to submit a Pull Request.
+Contributions are welcome\! Please see our [Contributing Guide](docs/contributing.md) for details.
 
 ## 📧 Support
 
