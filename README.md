@@ -1,7 +1,8 @@
 # Doctainr - Docker Desktop UI
 
-A Docker desktop application built with
-Rust and Dioxus, providing real-time Docker management.
+A Docker desktop application built with Rust and Dioxus, providing real-time Docker management.
+
+📚 **[Read the Documentation](docs/README.md)** | 🚀 **[Getting Started](docs/tutorials/getting-started.md)** | 🤝 **[Contributing](CONTRIBUTING.md)**
 
 ## ✨ Features
 
@@ -112,7 +113,17 @@ cargo clippy
 
 ## 🤝 Contributing
 
-Contributions are welcome\! Please feel free to submit a Pull Request.
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) to learn about:
+
+- Setting up your development environment
+- Code standards and style guidelines
+- Pull request process
+- Documentation guidelines
+
+Key resources:
+- [Architecture Documentation](docs/reference/architecture.md)
+- [Building from Source](docs/how-to/build-from-source.md)
+- [State Management Guide](docs/reference/state-management.md)
 
 ## 📧 Support
 
