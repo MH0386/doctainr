@@ -22,22 +22,24 @@ This guide helps resolve common issues when using or developing Doctainr.
 **Solutions**:
 
 1. Check system compatibility:
+
    ```bash
    # Ensure you have curl
    which curl
-   
+
    # Check internet connection
    ping -c 3 sh.rustup.rs
    ```
 
 2. Manual installation:
+
    ```bash
    # Download rustup
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rustup-init.sh
-   
+
    # Make executable
    chmod +x rustup-init.sh
-   
+
    # Run installer
    ./rustup-init.sh
    ```
@@ -56,11 +58,13 @@ This guide helps resolve common issues when using or developing Doctainr.
 **Solutions**:
 
 1. Update Rust:
+
    ```bash
    rustup update stable
    ```
 
 2. Clear cargo cache:
+
    ```bash
    rm -rf ~/.cargo/registry
    cargo install dioxus-cli
@@ -119,40 +123,44 @@ ls -l /var/run/docker.sock
 **Solutions**:
 
 1. **Start Docker**:
+
    ```bash
    # Linux (systemd)
    sudo systemctl start docker
-   
+
    # macOS/Windows
    # Start Docker Desktop application
    ```
 
 2. **Check Docker socket permissions**:
+
    ```bash
    # Add user to docker group (Linux)
    sudo usermod -aG docker $USER
-   
+
    # Log out and back in, or run:
    newgrp docker
-   
+
    # Verify
    docker ps
    ```
 
 3. **Set DOCKER_HOST**:
+
    ```bash
    # If using non-default socket
    export DOCKER_HOST=unix:///var/run/docker.sock
-   
+
    # For TCP connection
    export DOCKER_HOST=tcp://localhost:2375
    ```
 
 4. **Check Docker socket exists**:
+
    ```bash
    # Should exist
    ls /var/run/docker.sock
-   
+
    # If missing, Docker isn't running
    ```
 
@@ -163,12 +171,14 @@ ls -l /var/run/docker.sock
 **Solutions**:
 
 1. **Linux**: Add user to docker group
+
    ```bash
    sudo usermod -aG docker $USER
    newgrp docker
    ```
 
 2. **Temporary fix** (not recommended):
+
    ```bash
    sudo chmod 666 /var/run/docker.sock
    ```
@@ -205,22 +215,25 @@ ls -l /var/run/docker.sock
 **Solutions**:
 
 1. **Check logs**:
+
    ```bash
    # Run with logging
    RUST_LOG=debug dx run
    ```
 
 2. **GTK/WebKit issues (Linux)**:
+
    ```bash
    # Reinstall GTK
    sudo apt-get install --reinstall libgtk-3-0 libwebkit2gtk-4.1-0
    ```
 
 3. **Display issues**:
+
    ```bash
    # Check DISPLAY variable
    echo $DISPLAY
-   
+
    # Should be something like :0 or :1
    # If empty, set it:
    export DISPLAY=:0
@@ -243,12 +256,14 @@ RUST_LOG=debug dx run
 **Common Causes**:
 
 1. **Docker not running**:
+
    ```bash
    # Start Docker first
    sudo systemctl start docker
    ```
 
 2. **Missing libraries**:
+
    ```bash
    # Check for missing libraries
    ldd target/release/doctainr
@@ -267,6 +282,7 @@ RUST_LOG=debug dx run
 **Solutions**:
 
 1. **Docker daemon slow to respond**:
+
    ```bash
    # Check Docker performance
    time docker ps
@@ -321,6 +337,7 @@ docker inspect <container-id>
 **Solutions**:
 
 1. **Container not responsive**:
+
    ```bash
    # Force stop
    docker kill <container-id>
@@ -360,17 +377,20 @@ docker inspect <container-id>
 **Solutions**:
 
 1. **Update toolchain**:
+
    ```bash
    rustup update stable
    ```
 
 2. **Clean and rebuild**:
+
    ```bash
    dx clean
    dx build
    ```
 
 3. **Check dependency versions**:
+
    ```bash
    # Update dependencies
    cargo update
@@ -389,11 +409,13 @@ docker inspect <container-id>
 **Solutions**:
 
 1. **Review and fix issues**:
+
    ```bash
    dx check
    ```
 
 2. **Allow specific lints** (if false positive):
+
    ```rust
    #[allow(clippy::lint_name)]
    ```
@@ -424,6 +446,7 @@ cargo test test_name -- --nocapture
    - Start Docker before running tests
 
 2. **Test isolation**:
+
    ```bash
    # Run tests serially
    cargo test -- --test-threads=1
@@ -442,6 +465,7 @@ cargo test test_name -- --nocapture
 **Solutions**:
 
 1. **Restart dx serve**:
+
    ```bash
    # Stop with Ctrl+C
    # Start again
@@ -540,6 +564,7 @@ Or sign the binary with a code signing certificate.
 **Solution**:
 
 1. Enable WSL2:
+
    ```powershell
    wsl --install
    ```
@@ -593,6 +618,7 @@ top -p $(pgrep doctainr)
 **Solutions**:
 
 1. **Docker daemon slow**:
+
    ```bash
    # Check Docker performance
    time docker ps
@@ -609,6 +635,7 @@ top -p $(pgrep doctainr)
 Before asking for help, collect:
 
 1. **Version information**:
+
    ```bash
    dx --version
    cargo --version
@@ -616,6 +643,7 @@ Before asking for help, collect:
    ```
 
 2. **System information**:
+
    ```bash
    uname -a  # Linux/macOS
    systeminfo  # Windows
@@ -759,6 +787,7 @@ If none of these solutions work:
 ---
 
 For more information:
+
 - [Development Guide](DEVELOPMENT.md)
 - [User Guide](USER_GUIDE.md)
 - [Contributing Guide](../CONTRIBUTING.md)

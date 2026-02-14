@@ -173,7 +173,7 @@ Follow Dioxus 0.7 best practices:
 
 All public items should have documentation comments:
 
-```rust
+````rust
 /// Starts a Docker container by ID.
 ///
 /// # Arguments
@@ -193,7 +193,7 @@ All public items should have documentation comments:
 pub async fn start_container(&self, id: &str) -> Result<()> {
     // Implementation
 }
-```
+````
 
 ### Error Handling
 
@@ -271,12 +271,14 @@ mod tests {
 ### Before Submitting
 
 1. **Update from upstream**:
+
    ```bash
    git fetch upstream
    git rebase upstream/main
    ```
 
 2. **Create a feature branch**:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -287,6 +289,7 @@ mod tests {
    - Update documentation as needed
 
 4. **Run quality checks**:
+
    ```bash
    dx fmt
    dx check
@@ -294,6 +297,7 @@ mod tests {
    ```
 
 5. **Commit your changes**:
+
    ```bash
    git add .
    git commit -m "feat: add your feature description"
@@ -349,6 +353,7 @@ mod tests {
 ### Bug Reports
 
 Include:
+
 - Clear, descriptive title
 - Steps to reproduce
 - Expected behavior
@@ -360,6 +365,7 @@ Include:
 ### Feature Requests
 
 Include:
+
 - Clear description of the feature
 - Use case or problem it solves
 - Proposed solution or implementation ideas
@@ -369,6 +375,7 @@ Include:
 ### Questions
 
 For questions:
+
 - Search existing issues first
 - Check the documentation
 - Provide context about what you're trying to do
@@ -422,6 +429,7 @@ If you need help:
 ## Recognition
 
 Contributors will be:
+
 - Listed in CHANGELOG.md for their contributions
 - Acknowledged in release notes
 - Added to the contributors list

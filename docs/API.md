@@ -18,6 +18,7 @@ This document provides detailed information about the public APIs and modules in
 The `DockerService` provides an interface to interact with the Docker daemon.
 
 #### Module Path
+
 ```rust
 use crate::services::DockerService;
 ```
@@ -33,6 +34,7 @@ Creates a new DockerService instance and connects to the Docker daemon.
 **Returns:** `Result<DockerService, Error>`
 
 **Example:**
+
 ```rust
 let service = DockerService::new()?;
 ```
@@ -50,6 +52,7 @@ Lists all Docker containers (both running and stopped).
 **Returns:** `Result<Vec<ContainerInfo>>`
 
 **Example:**
+
 ```rust
 let containers = service.list_containers().await?;
 for container in containers {
@@ -68,6 +71,7 @@ Lists all Docker images on the local system.
 **Returns:** `Result<Vec<ImageInfo>>`
 
 **Example:**
+
 ```rust
 let images = service.list_images().await?;
 for image in images {
@@ -86,6 +90,7 @@ Lists all Docker volumes.
 **Returns:** `Result<Vec<VolumeInfo>>`
 
 **Example:**
+
 ```rust
 let volumes = service.list_volumes().await?;
 for volume in volumes {
@@ -102,11 +107,13 @@ pub async fn start_container(&self, id: &str) -> Result<()>
 Starts a stopped Docker container.
 
 **Parameters:**
+
 - `id` - Container ID or name
 
 **Returns:** `Result<()>`
 
 **Example:**
+
 ```rust
 service.start_container("my_container").await?;
 ```
@@ -120,11 +127,13 @@ pub async fn stop_container(&self, id: &str) -> Result<()>
 Stops a running Docker container.
 
 **Parameters:**
+
 - `id` - Container ID or name
 
 **Returns:** `Result<()>`
 
 **Example:**
+
 ```rust
 service.stop_container("my_container").await?;
 ```
@@ -147,6 +156,7 @@ pub struct ContainerInfo {
 ```
 
 **Fields:**
+
 - `id`: Short container ID (12 characters)
 - `name`: Container name (without leading `/`)
 - `image`: Image name used by the container
@@ -168,6 +178,7 @@ pub struct ImageInfo {
 ```
 
 **Fields:**
+
 - `id`: Full image ID
 - `repository`: Repository name
 - `tag`: Image tag
@@ -187,6 +198,7 @@ pub struct VolumeInfo {
 ```
 
 **Fields:**
+
 - `name`: Volume name
 - `driver`: Volume driver (usually "local")
 - `mountpoint`: Mount point path
@@ -208,16 +220,19 @@ pub enum ContainerState {
 ```rust
 pub fn label(&self) -> &'static str
 ```
+
 Returns display label: "Running" or "Stopped"
 
 ```rust
 pub fn css_class(&self) -> &'static str
 ```
+
 Returns CSS class name: "running" or "stopped"
 
 ```rust
 pub fn action_label(&self) -> &'static str
 ```
+
 Returns action button label: "Stop" or "Start"
 
 ## State Management
@@ -247,6 +262,7 @@ pub fn new() -> Self
 Creates a new AppState and initializes Docker service connection.
 
 **Example:**
+
 ```rust
 let app_state = AppState::new();
 use_context_provider(|| app_state);
@@ -263,6 +279,7 @@ pub fn refresh_all(&self)
 Refreshes containers, images, and volumes data from Docker.
 
 **Example:**
+
 ```rust
 app_state.refresh_all();
 ```
@@ -300,6 +317,7 @@ pub fn start_container(&self, id: String)
 Starts a container and refreshes the container list.
 
 **Parameters:**
+
 - `id`: Container ID
 
 ##### stop_container
@@ -311,6 +329,7 @@ pub fn stop_container(&self, id: String)
 Stops a container and refreshes the container list.
 
 **Parameters:**
+
 - `id`: Container ID
 
 ##### set_container_state
@@ -322,6 +341,7 @@ pub fn set_container_state(&self, id: &str, next_state: ContainerState)
 Sets a container to the specified state (starts or stops it).
 
 **Parameters:**
+
 - `id`: Container ID
 - `next_state`: Desired state
 
@@ -349,11 +369,13 @@ pub fn MetricCard(
 ```
 
 **Props:**
+
 - `title`: Card title
 - `value`: Main value to display
 - `hint`: Optional hint text
 
 **Example:**
+
 ```rust
 rsx! {
     MetricCard {
@@ -377,10 +399,12 @@ pub fn StatusPill(
 ```
 
 **Props:**
+
 - `label`: Status text
 - `class_name`: CSS class for styling
 
 **Example:**
+
 ```rust
 rsx! {
     StatusPill {
@@ -403,10 +427,12 @@ pub fn SectionHeader(
 ```
 
 **Props:**
+
 - `title`: Main title
 - `subtitle`: Optional subtitle
 
 **Example:**
+
 ```rust
 rsx! {
     SectionHeader {
@@ -428,6 +454,7 @@ pub fn Dashboard() -> Element
 ```
 
 **Features:**
+
 - Displays metric cards for containers, images, volumes
 - Shows running vs stopped container counts
 - "Refresh All" button to reload data
@@ -442,6 +469,7 @@ pub fn Containers() -> Element
 ```
 
 **Features:**
+
 - Lists all containers in a table
 - Shows name, image, ports, state
 - Start/Stop buttons for each container
@@ -457,6 +485,7 @@ pub fn Images() -> Element
 ```
 
 **Features:**
+
 - Lists all images in a table
 - Shows repository, tag, ID, size
 - Refresh button
@@ -471,6 +500,7 @@ pub fn Volumes() -> Element
 ```
 
 **Features:**
+
 - Lists all volumes in a table
 - Shows name, driver, mountpoint
 - Refresh button
@@ -494,6 +524,7 @@ pub fn AppShell() -> Element
 ```
 
 **Features:**
+
 - Sidebar with navigation links
 - Header with app title
 - Last action display
@@ -529,6 +560,7 @@ type Result<T> = std::result::Result<T, anyhow::Error>;
 ```
 
 Errors are handled by:
+
 1. Propagating with `?` operator
 2. Setting `error_message` signal in AppState
 3. Displaying error in UI

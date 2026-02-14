@@ -16,6 +16,7 @@ This guide covers building, packaging, and distributing Doctainr for various pla
 ### Prerequisites
 
 Ensure you have:
+
 - Rust toolchain (stable channel)
 - Dioxus CLI (`cargo install dioxus-cli`)
 - Platform-specific dependencies installed
@@ -28,6 +29,7 @@ dx bundle --release
 ```
 
 The release binary will be located at:
+
 - Linux: `target/dx/doctainr/release/bundle/`
 - macOS: `target/dx/doctainr/release/bundle/macos/`
 - Windows: `target/dx/doctainr/release/bundle/windows/`
@@ -79,6 +81,7 @@ dx bundle --release
 #### Package Formats
 
 **AppImage** (Recommended):
+
 ```bash
 # Install tools
 cargo install cargo-appimage
@@ -88,6 +91,7 @@ cargo appimage
 ```
 
 **DEB Package**:
+
 ```bash
 # Install cargo-deb
 cargo install cargo-deb
@@ -99,6 +103,7 @@ cargo deb
 ```
 
 **RPM Package**:
+
 ```bash
 # Install cargo-rpm
 cargo install cargo-rpm
@@ -113,6 +118,7 @@ cargo rpm build
 ```
 
 **Flatpak**:
+
 ```bash
 # Create flatpak manifest
 # See: https://docs.flatpak.org/en/latest/
@@ -244,11 +250,11 @@ Section "Install"
   SetOutPath $INSTDIR
   File "target\release\doctainr.exe"
   File "assets\icon.ico"
-  
+
   CreateDirectory "$SMPROGRAMS\${APP_NAME}"
   CreateShortcut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" "$INSTDIR\${APP_EXE}"
   CreateShortcut "$DESKTOP\${APP_NAME}.lnk" "$INSTDIR\${APP_EXE}"
-  
+
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 SectionEnd
 
@@ -257,7 +263,7 @@ Section "Uninstall"
   Delete "$INSTDIR\icon.ico"
   Delete "$INSTDIR\Uninstall.exe"
   RMDir "$INSTDIR"
-  
+
   Delete "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk"
   RMDir "$SMPROGRAMS\${APP_NAME}"
   Delete "$DESKTOP\${APP_NAME}.lnk"
@@ -310,7 +316,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build-linux:
@@ -398,6 +404,7 @@ jobs:
 ### GitHub Releases
 
 Primary distribution method:
+
 - Tag releases with semantic versioning
 - Upload platform-specific binaries
 - Include checksums for verification
@@ -471,6 +478,7 @@ cargo publish
 ### Direct Download
 
 Provide direct download links:
+
 - Linux: `.tar.gz`, `.deb`, `.rpm`, `.AppImage`
 - macOS: `.dmg`
 - Windows: `.msi`, `.exe` installer
@@ -480,6 +488,7 @@ Provide direct download links:
 ### Application Settings
 
 Configuration file location:
+
 - Linux: `~/.config/doctainr/config.toml`
 - macOS: `~/Library/Application Support/doctainr/config.toml`
 - Windows: `%APPDATA%\doctainr\config.toml`
@@ -528,6 +537,7 @@ Doctainr follows [SemVer](https://semver.org/):
 ### Update Mechanism
 
 Future versions will include:
+
 - Auto-update checking
 - In-app update notifications
 - Update download and installation
@@ -557,6 +567,7 @@ sha256sum -c checksums.txt
 ### Code Signing
 
 Always sign binaries for:
+
 - macOS: Required for notarization
 - Windows: Increases user trust
 - Linux: AppImage signing
@@ -564,6 +575,7 @@ Always sign binaries for:
 ### Docker Socket Security
 
 Document Docker socket permissions:
+
 - Recommend docker group membership
 - Warn about security implications
 - Provide alternatives (TCP with TLS)
@@ -573,12 +585,14 @@ Document Docker socket permissions:
 ### Crash Reporting
 
 Consider integrating:
+
 - Sentry for error tracking
 - Custom telemetry (opt-in only)
 
 ### Usage Metrics
 
 If collecting metrics:
+
 - Always opt-in
 - Transparent about data collection
 - Anonymize user data
@@ -589,6 +603,7 @@ If collecting metrics:
 ### Documentation
 
 Ensure documentation is:
+
 - Updated with each release
 - Available offline
 - Versioned
@@ -596,6 +611,7 @@ Ensure documentation is:
 ### User Support
 
 Provide support through:
+
 - GitHub Issues
 - Discussion forums
 - Email support
@@ -624,6 +640,7 @@ If collecting any data, provide a privacy policy.
 ---
 
 For more information, see:
+
 - [Development Guide](DEVELOPMENT.md)
 - [Architecture Documentation](../ARCHITECTURE.md)
 - [Contributing Guide](../CONTRIBUTING.md)

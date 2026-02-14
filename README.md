@@ -133,6 +133,7 @@ Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md)
 ## 📧 Support
 
 For issues and questions:
+
 - **Bug Reports**: [Open an issue](https://github.com/MH0386/doctainr/issues)
 - **Feature Requests**: [Open an issue](https://github.com/MH0386/doctainr/issues)
 - **Questions**: Check the [User Guide](docs/USER_GUIDE.md) or [Troubleshooting](docs/TROUBLESHOOTING.md) guide

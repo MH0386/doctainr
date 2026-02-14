@@ -52,7 +52,7 @@ impl AppState {
     /// fn App() -> Element {
     ///     let app_state = AppState::new();
     ///     use_context_provider(|| app_state);
-    ///     
+    ///
     ///     rsx! {
     ///         div { "App content" }
     ///     }

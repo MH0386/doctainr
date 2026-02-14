@@ -62,12 +62,14 @@ Doctainr is a native desktop application that provides a graphical interface for
 ### 1. Main Application (`main.rs`)
 
 Entry point of the application. Sets up:
+
 - Application routes using Dioxus Router
 - Global app state with Context API
 - Asset loading (CSS, icons)
 - Launch configuration
 
 **Key Components:**
+
 - `Route` enum: Defines all application routes
 - `App` component: Root component that provides context and routing
 
@@ -127,6 +129,7 @@ pub struct AppState {
 ```
 
 **Benefits:**
+
 - Automatic UI updates when state changes
 - Type-safe state access
 - No prop drilling required
@@ -143,6 +146,7 @@ fn MetricCard(title: String, value: String, hint: Option<String>) -> Element {
 ```
 
 **Benefits:**
+
 - Pure functions, easy to test
 - Props enforce type safety
 - Composable and reusable
@@ -161,6 +165,7 @@ spawn(async move {
 ```
 
 **Benefits:**
+
 - Non-blocking UI operations
 - Proper error handling
 - Automatic state updates trigger re-renders
@@ -185,6 +190,7 @@ Docker::connect_with_local_defaults()
 ```
 
 This attempts to connect in order:
+
 1. `DOCKER_HOST` environment variable
 2. Unix socket: `/var/run/docker.sock`
 3. Named pipe on Windows
@@ -328,6 +334,7 @@ dx bundle        # Production build for desktop app
 ### Dependencies
 
 Key runtime dependencies:
+
 - Docker daemon must be running
 - GTK libraries (Linux)
 - WebKit (macOS/Windows)

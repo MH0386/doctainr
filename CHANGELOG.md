@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial release of Doctainr
 - Dashboard view for Docker overview
 - Container management (start/stop)
@@ -17,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Desktop application with native Rust performance
 
 ### Features
+
 - 📊 Dashboard with container, image, and volume statistics
 - 🐳 Container lifecycle management
 - 💿 Local Docker image browsing
@@ -27,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2024
 
 ### Added
+
 - Initial project setup
 - Core Docker integration using Bollard
 - Dioxus-based desktop UI
@@ -37,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Volume browsing
 
 ### Technical
+
 - Rust 2021 edition
 - Dioxus 0.7.1 framework
 - Bollard 0.18 for Docker API
@@ -52,23 +56,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This is the initial release of Doctainr, a Docker desktop management application built with Rust and Dioxus.
 
 **Key Features:**
+
 - Native desktop application for Docker management
 - Real-time monitoring of containers, images, and volumes
 - Intuitive UI with multiple specialized views
 - Fast performance with native Rust compilation
 
 **Requirements:**
+
 - Docker daemon running locally
 - Rust toolchain 1.70+
 - Linux/macOS/Windows support
 
 **Known Limitations:**
+
 - Limited to local Docker daemon connections
 - Basic container operations (start/stop only)
 - No image management operations yet
 - No network or compose file support
 
 **Future Plans:**
+
 - Advanced container operations (logs, exec, inspect)
 - Image management (pull, push, remove)
 - Docker Compose integration

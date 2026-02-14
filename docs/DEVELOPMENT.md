@@ -19,6 +19,7 @@ This guide covers the development workflow, tools, and best practices for workin
 ### Prerequisites
 
 1. **Rust Toolchain** (1.70+)
+
    ```bash
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    source $HOME/.cargo/env
@@ -30,15 +31,17 @@ This guide covers the development workflow, tools, and best practices for workin
    - Windows: Install Docker Desktop
 
 3. **Dioxus CLI**
+
    ```bash
    cargo install dioxus-cli
    ```
 
 4. **(Optional) Nix with devenv**
+
    ```bash
    # Install Nix
    curl -L https://nixos.org/nix/install | sh
-   
+
    # Install devenv
    nix profile install nixpkgs#devenv
    ```
@@ -120,6 +123,7 @@ devenv tasks run cargo:test    # Run Rust tests
 ### Git Hooks
 
 devenv automatically sets up git hooks for:
+
 - Code formatting (rustfmt)
 - Linting (clippy)
 - TOML validation
@@ -166,6 +170,7 @@ dx build --release
 ```
 
 The release binary will be at:
+
 - Dioxus: `target/dx/doctainr/release/bundle/`
 
 ### Build Features
@@ -276,6 +281,7 @@ mod tests {
 ### Writing Tests
 
 1. **Unit Tests**: Test individual functions
+
    ```rust
    #[test]
    fn test_format_size() {
@@ -284,6 +290,7 @@ mod tests {
    ```
 
 2. **Integration Tests**: Test module interactions
+
    ```rust
    #[tokio::test]
    async fn test_docker_integration() {
@@ -419,12 +426,14 @@ Changes to Rust code or assets will trigger rebuilds.
 ### Asset Hot Reload
 
 Assets in the `assets/` directory are reloaded automatically:
+
 - CSS changes reflect immediately
 - Images update on reload
 
 ### Limitations
 
 Hot reload doesn't support:
+
 - Macro changes (requires full rebuild)
 - Dependency updates (requires rebuild)
 - Some state changes (may need app restart)
@@ -434,10 +443,11 @@ Hot reload doesn't support:
 ### Adding a New View
 
 1. Create view file in `src/views/`:
+
    ```rust
    // src/views/my_view.rs
    use dioxus::prelude::*;
-   
+
    #[component]
    pub fn MyView() -> Element {
        rsx! {
@@ -447,12 +457,14 @@ Hot reload doesn't support:
    ```
 
 2. Export in `src/views/mod.rs`:
+
    ```rust
    mod my_view;
    pub use my_view::MyView;
    ```
 
 3. Add route in `src/main.rs`:
+
    ```rust
    #[derive(Routable, Clone, PartialEq)]
    enum Route {
@@ -468,10 +480,11 @@ Hot reload doesn't support:
 ### Adding a Component
 
 1. Create component file in `src/components/`:
+
    ```rust
    // src/components/my_component.rs
    use dioxus::prelude::*;
-   
+
    #[component]
    pub fn MyComponent(title: String) -> Element {
        rsx! {
@@ -483,15 +496,17 @@ Hot reload doesn't support:
    ```
 
 2. Export in `src/components/mod.rs`:
+
    ```rust
    mod my_component;
    pub use my_component::MyComponent;
    ```
 
 3. Use in views:
+
    ```rust
    use crate::components::MyComponent;
-   
+
    rsx! {
        MyComponent { title: "Hello".to_string() }
    }
@@ -500,6 +515,7 @@ Hot reload doesn't support:
 ### Adding a Service Method
 
 1. Add method to `DockerService`:
+
    ```rust
    // src/services/docker.rs
    impl DockerService {
