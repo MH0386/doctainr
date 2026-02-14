@@ -5,10 +5,10 @@
 //! provides methods for common Docker operations.
 
 use anyhow::Result;
+use bollard::Docker;
 use bollard::container::{ListContainersOptions, StartContainerOptions, StopContainerOptions};
 use bollard::image::ListImagesOptions;
 use bollard::volume::ListVolumesOptions;
-use bollard::Docker;
 
 /// Represents the state of a Docker container.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
